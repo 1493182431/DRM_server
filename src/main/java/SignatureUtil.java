@@ -47,7 +47,7 @@ public class SignatureUtil {
         PKCS8EncodedKeySpec pkcs8EncodedKeySpec = new PKCS8EncodedKeySpec(rsaPrivateKey.getEncoded());
         KeyFactory keyFactory = KeyFactory.getInstance("RSA");
         PrivateKey privateKey = keyFactory.generatePrivate(pkcs8EncodedKeySpec);
-        Signature signature = Signature.getInstance("MD5withRSA");
+        Signature signature = Signature.getInstance("SHA256withRSA");
         signature.initSign(privateKey);
         signature.update(src.getBytes());
         byte[] result = signature.sign();
